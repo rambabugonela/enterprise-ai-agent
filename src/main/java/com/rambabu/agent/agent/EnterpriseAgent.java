@@ -2,6 +2,7 @@ package com.rambabu.agent.agent;
 
 import com.rambabu.agent.prompt.PromptFactory;
 import com.rambabu.agent.tool.CalculatorTool;
+import com.rambabu.agent.tool.EnterpriseAiAssistantTool;
 import com.rambabu.agent.tool.ProjectInfoTool;
 import com.rambabu.agent.tool.TimeTool;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ public class EnterpriseAgent {
     private final CalculatorTool calculatorTool;
     private final TimeTool timeTool;
     private final ProjectInfoTool projectInfoTool;
+    private final EnterpriseAiAssistantTool enterpriseAiAssistantTool;
 
     public String chat(String message) {
 
@@ -25,7 +27,8 @@ public class EnterpriseAgent {
                 .user(message)
                 .tools(calculatorTool,
                         timeTool,
-                        projectInfoTool)
+                        projectInfoTool,
+                        enterpriseAiAssistantTool)
                 .call()
                 .content();
     }
